@@ -16,5 +16,7 @@ done
 
 for rcfile in submodules/prezto/runcoms/!(README.md); do
   ln -s $SCRIPT_DIR/$rcfile ~/.${rcfile##*/}
+  echo $SCRIPT_DIR/$rcfile ~/.${rcfile##*/}
 done
 ln -s $SCRIPT_DIR/submodules/prezto/ ~/.zprezto
+echo $SCRIPT_DIR/submodules/prezto/ ~/.zprezto
