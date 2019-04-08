@@ -1,0 +1,32 @@
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[cpu]
+label=CPU:
+interval=1
+
+[memory]
+interval=1
+
+[network]
+interval=10
+separator_block_width=2
+separator=false
+[echo]
+command=echo @
+interval=once
+separator_block_width=2
+separator=false
+[ssid]
+interval=10
+
+
+[battery]
+label=
+instance=0
+interval=30
+
+[datetime]
+command=date +'%m/%d(%a) %H:%M'
+interval=1

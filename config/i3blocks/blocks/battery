@@ -1,0 +1,26 @@
+#!/bin/bash
+
+BATTERY=1
+BATTERY_INFO=/sys/class/power_supply/BAT${BATTERY}/
+BATTERY_STATE=$(cat "${BATTERY_INFO}/status")
+BATTERY_POWER=$(cat "${BATTERY_INFO}/capacity")
+
+URGENT_VALUE=10
+
+if [[ "${BATTERY_STATE}" = "Charging" ]]; then
+  echo "${BATTERY_POWER}%+"
+  echo "${BATTERY_POWER}%+"
+  echo ""
+elif [[ "${BATTERY_STATE}" = "Discharging" ]]; then
+  echo "${BATTERY_POWER}%-"
+  echo "${BATTERY_POWER}%-"
+  echo ""
+else
+  echo "${BATTERY_POWER}%"
+  echo "${BATTERY_POWER}%"
+  echo ""
+fi
+
+if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then
+  exit 33
+fi
