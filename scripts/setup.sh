@@ -6,7 +6,6 @@ cd $ROOT_DIR
 shopt -s nullglob
 shopt -s extglob
 
-$ Link files under ~
 while read -d $'\0' file;
 do
     file=$(basename $file)
@@ -31,24 +30,18 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-while read -d $'\0' dir;
-do
-    dir=$(basename $dir)
-    if [ -d ~/.config/$dir -a -L ~/$dir ]; then
-        mv ~/.config/$dir{,.bak} # Back up previous config
-    fi
-done <  <(find config -mindepth 1 -maxdepth 1 -type d -name "*" -print0)
 while read -d $'\0' file;
 do
     dir=$(dirname $file)
+    echo $dir
     file=$(basename $file)
-    if [ ! -d $dir ]; then
-        mkdir -p $dir
+    if [ ! -d ~/.$dir ]; then
+        mkdir -p ~/.$dir
     fi
     if [ -f ~/.$dir/$file -a -L ~/.$dir/$file ]; then
         mv ~/.$dir/$file{,.bak} # Back up previous config
     fi
-    ln -snf $dir/$file ~/.config/.$dir/$file
+    ln -snf $ROOT_DIR/$dir/$file ~/.$dir/$file
 done <  <(find config -mindepth 1 -maxdepth 8 -type f -name "*" -print0)
 
 #for rcfile in submodules/prezto/runcoms/!(README.md); do
