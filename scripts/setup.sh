@@ -19,7 +19,7 @@ do
     [[ "$file" == "config" ]] && continue
 
     echo $ROOT_DIR/$file
-    if [ -f ~/$file -a -L ~/$file ]; then
+    if [ -f ~/$file -a ! -L ~/$file ]; then
 	    mv ~/$file{,.bak} # Back up previous config
     fi
     ln -snf $ROOT_DIR/$file ~/$file 
@@ -38,7 +38,7 @@ do
     if [ ! -d ~/.$dir ]; then
         mkdir -p ~/.$dir
     fi
-    if [ -f ~/.$dir/$file -a -L ~/.$dir/$file ]; then
+    if [ -f ~/.$dir/$file -a ! -L ~/.$dir/$file ]; then
         mv ~/.$dir/$file{,.bak} # Back up previous config
     fi
     ln -snf $ROOT_DIR/$dir/$file ~/.$dir/$file
