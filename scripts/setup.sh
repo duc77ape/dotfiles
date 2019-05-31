@@ -45,8 +45,8 @@ do
     if [ ! -d $dir ]; then
         mkdir -p $dir
     fi
-    if [ -f ~/.config/.$dir/$file -a -L ~/.config/.$dir/$file ]; then
-        mv ~/.config/.$dir/$file{,.bak} # Back up previous config
+    if [ -f ~/.$dir/$file -a -L ~/.$dir/$file ]; then
+        mv ~/.$dir/$file{,.bak} # Back up previous config
     fi
     ln -snf $dir/$file ~/.config/.$dir/$file
 done <  <(find config -mindepth 1 -maxdepth 8 -type f -name "*" -print0)
