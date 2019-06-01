@@ -221,4 +221,9 @@ bar {
     }
 }
 
+#
+# Auto Start:
+#
+exec fcitx-autostart
+
 include conf.d/*.conf
