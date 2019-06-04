@@ -23,7 +23,7 @@ do
 	    mv ~/$file{,.bak} # Back up previous config
     fi
     ln -snf $ROOT_DIR/$file ~/$file 
-done <  <(find . -mindepth 1 -maxdepth 1 -name "*" -print0)
+done <  <(find . -mindepth 1 -maxdepth 1 -name ".*" -print0)
 
 # Link files under .config 
 if [ ! -d ~/.config ]; then

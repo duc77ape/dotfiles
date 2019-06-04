@@ -225,4 +225,9 @@ bar {
     swaybar_command waybar
 }
 
+#
+# Auto Start:
+#
+exec fcitx-autostart
+
 include conf.d/*.conf
