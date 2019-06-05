@@ -229,5 +229,6 @@ bar {
 # Auto Start:
 #
 exec fcitx-autostart
+exec ~/dotfiles/scripts/load-gtk3-configs.sh
 
 include conf.d/*.conf
