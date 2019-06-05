@@ -229,6 +229,10 @@ bar {
 # Auto Start:
 #
 exec fcitx-autostart
-exec ~/dotfiles/scripts/load-gtk3-configs.sh
+
+exec_always ~/dotfiles/scripts/load-gtk3-configs.sh \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
 
 include conf.d/*.conf
