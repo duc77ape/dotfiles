@@ -1,0 +1,10 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODFIERS=@im=fcitx
+_JAVA_AWT_WM_NONREPARENTING=1
+XDG_CURRENT_DESKTOP=Unity

@@ -17,6 +17,7 @@ do
     [[ "$file" == ".gitconfig" ]] && continue
     [[ "$file" == "scripts" ]] && continue
     [[ "$file" == "config" ]] && continue
+    [[ "$file" == "etc" ]] && continue
 
     echo $ROOT_DIR/$file
     if [ -f ~/$file -a ! -L ~/$file ]; then
@@ -43,6 +44,8 @@ do
     fi
     ln -snf $ROOT_DIR/$dir/$file ~/.$dir/$file
 done <  <(find config -mindepth 1 -maxdepth 8 -type f -name "*" -print0)
+
+sudo cp $ROOT_DIR/etc/environment /etc/
 
 #for rcfile in submodules/prezto/runcoms/!(README.md); do
 #  ln -s $SCRIPT_DIR/$rcfile ~/.${rcfile##*/}
