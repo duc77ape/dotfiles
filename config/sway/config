@@ -229,6 +229,7 @@ bar {
 # Auto Start:
 #
 exec fcitx-autostart
+exec mako
 
 exec_always ~/dotfiles/scripts/load-gtk3-configs.sh \
     gtk-theme:gtk-theme-name \
